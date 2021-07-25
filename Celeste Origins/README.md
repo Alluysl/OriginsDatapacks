@@ -1,5 +1,7 @@
 # Celeste Origins
 
+[![License: CC BY-ND 4.0](https://img.shields.io/badge/License-CC%20BY--ND%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nd/4.0/)
+
 <a href="https://github.com/apace100/origins-fabric/releases/tag/0.7.3"><img src="https://media.discordapp.net/attachments/817078792463187988/831319512464490496/origins_badge.png" alt="Requires Origins" width="180" height="60" /></a>
 <a href="https://www.curseforge.com/minecraft/mc-mods/pehkui"><img src="https://cdn.discordapp.com/attachments/747200097015562250/840039825678663741/pehkui_badge.png" alt="Requires Pehkui" width="180" height="60" /></a>
 
