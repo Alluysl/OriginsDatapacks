@@ -1,0 +1,9 @@
+{
+	"replace": false,
+	"origins": [
+		"celeste:madeline",
+		"celeste:crippled_madeline",
+		"celeste:determined_madeline",
+		"celeste:reunited_madeline"
+	]
+}

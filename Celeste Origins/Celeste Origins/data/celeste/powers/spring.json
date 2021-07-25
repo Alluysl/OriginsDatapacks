@@ -1,0 +1,993 @@
+{
+	"type": "origins:multiple",
+	"name": "Spring Parkour",
+	"description": "Pistons help you move around by pushing you if you don't sneak.",
+
+	"on": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 1,
+		"start_value": 1,
+		"hud_render": {
+			"should_render": false
+		}
+	},
+
+	"horizontal_restore_on": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 1,
+		"start_value": 1,
+		"hud_render": {
+			"should_render": false
+		}
+	},
+
+	"vertical_restore_on": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 1,
+		"start_value": 1,
+		"hud_render": {
+			"should_render": false
+		}
+	},
+
+	"x_pre": {
+		"type": "origins:resource",
+		"min": -1,
+		"max": 1,
+		"start_value": 0,
+		"hud_render": {
+			"should_render": false
+		}
+	},
+
+	"z_pre": {
+		"type": "origins:resource",
+		"min": -1,
+		"max": 1,
+		"start_value": 0,
+		"hud_render": {
+			"should_render": false
+		}
+	},
+
+	"x": {
+		"type": "origins:resource",
+		"min": -1,
+		"max": 1,
+		"start_value": 0,
+		"hud_render": {
+			"should_render": false
+		}
+	},
+
+	"z": {
+		"type": "origins:resource",
+		"min": -1,
+		"max": 1,
+		"start_value": 0,
+		"hud_render": {
+			"should_render": false
+		}
+	},
+
+	"horizontal_cooldown": {
+		"type": "origins:cooldown",
+		"cooldown": 10,
+		"hud_render": {
+			"should_render": false
+		}
+	},
+
+	"horizontal": {
+		"type": "origins:action_over_time",
+		"interval": 2,
+		"entity_action": {
+			"type": "origins:and",
+			"comment": "Frankly I'm not sure whether checking for a block_in_radius first would make this more performant or not... By the way overusing if_else instead of if_else_list because with the latter this specific script would I think create more objects",
+			"actions": [
+
+				{
+					"type": "origins:if_else",
+					"comment": "Reset X direction to 0",
+					"condition": {
+						"type": "origins:resource",
+						"resource": "celeste:spring_x",
+						"comparison": "!=",
+						"compare_to": 0
+					},
+					"if_action": {
+						"type": "origins:if_else",
+						"condition": {
+							"type": "origins:resource",
+							"resource": "celeste:spring_x",
+							"comparison": "==",
+							"compare_to": 1
+						},
+						"if_action": {
+							"type": "origins:change_resource",
+							"resource": "celeste:spring_x",
+							"change": -1
+						},
+						"else_action": {
+							"type": "origins:change_resource",
+							"resource": "celeste:spring_x",
+							"change": 1
+						}
+					}
+				},
+
+				{
+					"type": "origins:if_else",
+					"comment": "Reset Z direction to 0",
+					"condition": {
+						"type": "origins:resource",
+						"resource": "celeste:spring_z",
+						"comparison": "!=",
+						"compare_to": 0
+					},
+					"if_action": {
+						"type": "origins:if_else",
+						"condition": {
+							"type": "origins:resource",
+							"resource": "celeste:spring_z",
+							"comparison": "==",
+							"compare_to": 1
+						},
+						"if_action": {
+							"type": "origins:change_resource",
+							"resource": "celeste:spring_z",
+							"change": -1
+						},
+						"else_action": {
+							"type": "origins:change_resource",
+							"resource": "celeste:spring_z",
+							"change": 1
+						}
+					}
+				},
+
+				{
+					"type": "origins:if_else",
+					"condition": {
+						"type": "origins:and",
+						"conditions": [
+							{
+								"type": "origins:block_collision",
+								"offset_x": 0.01,
+								"offset_y": 0,
+								"offset_z": 0
+							},
+							{
+								"type": "origins:in_block_anywhere",
+								"block_condition": {
+									"type": "origins:offset",
+									"x": 1,
+									"condition": {
+										"type": "origins:and",
+										"conditions": [
+											{
+												"type": "origins:block",
+												"block": "minecraft:piston_head"
+											},
+											{
+												"type": "origins:block_state",
+												"property": "facing",
+												"enum": "west"
+											}
+										]
+									}
+								}
+							}
+						]
+					},
+					"if_action": {
+						"type": "origins:change_resource",
+						"resource": "celeste:spring_x",
+						"change": -1
+					}
+				},
+
+				{
+					"type": "origins:if_else",
+					"condition": {
+						"type": "origins:and",
+						"conditions": [
+							{
+								"type": "origins:block_collision",
+								"offset_x": -0.01,
+								"offset_y": 0,
+								"offset_z": 0
+							},
+							{
+								"type": "origins:in_block_anywhere",
+								"block_condition": {
+									"type": "origins:offset",
+									"x": -1,
+									"condition": {
+										"type": "origins:and",
+										"conditions": [
+											{
+												"type": "origins:block",
+												"block": "minecraft:piston_head"
+											},
+											{
+												"type": "origins:block_state",
+												"property": "facing",
+												"enum": "east"
+											}
+										]
+									}
+								}
+							}
+						]
+					},
+					"if_action": {
+						"type": "origins:change_resource",
+						"resource": "celeste:spring_x",
+						"change": 1
+					}
+				},
+
+				{
+					"type": "origins:if_else",
+					"condition": {
+						"type": "origins:and",
+						"conditions": [
+							{
+								"type": "origins:block_collision",
+								"offset_x": 0,
+								"offset_y": 0,
+								"offset_z": 0.01
+							},
+							{
+								"type": "origins:in_block_anywhere",
+								"block_condition": {
+									"type": "origins:offset",
+									"z": 1,
+									"condition": {
+										"type": "origins:and",
+										"conditions": [
+											{
+												"type": "origins:block",
+												"block": "minecraft:piston_head"
+											},
+											{
+												"type": "origins:block_state",
+												"property": "facing",
+												"enum": "north"
+											}
+										]
+									}
+								}
+							}
+						]
+					},
+					"if_action": {
+						"type": "origins:change_resource",
+						"resource": "celeste:spring_z",
+						"change": -1
+					}
+				},
+
+				{
+					"type": "origins:if_else",
+					"condition": {
+						"type": "origins:and",
+						"conditions": [
+							{
+								"type": "origins:block_collision",
+								"offset_x": 0,
+								"offset_y": 0,
+								"offset_z": -0.01
+							},
+							{
+								"type": "origins:in_block_anywhere",
+								"block_condition": {
+									"type": "origins:offset",
+									"z": -1,
+									"condition": {
+										"type": "origins:and",
+										"conditions": [
+											{
+												"type": "origins:block",
+												"block": "minecraft:piston_head"
+											},
+											{
+												"type": "origins:block_state",
+												"property": "facing",
+												"enum": "south"
+											}
+										]
+									}
+								}
+							}
+						]
+					},
+					"if_action": {
+						"type": "origins:change_resource",
+						"resource": "celeste:spring_z",
+						"change": 1
+					}
+				},
+
+				{
+					"type": "origins:if_else",
+					"condition": {
+						"type": "origins:or",
+						"conditions": [
+							{
+								"type": "origins:and",
+								"conditions": [
+									{
+										"type": "origins:resource",
+										"resource": "celeste:spring_horizontal_cooldown",
+										"comparison": "==",
+										"compare_to": 0
+									},
+									{
+										"type": "origins:or",
+										"conditions": [
+											{
+												"type": "origins:resource",
+												"resource": "celeste:spring_x",
+												"comparison": "!=",
+												"compare_to": 0
+											},
+											{
+												"type": "origins:resource",
+												"resource": "celeste:spring_z",
+												"comparison": "!=",
+												"compare_to": 0
+											}
+										]
+									}
+								]
+							},
+							{
+								"type": "origins:and",
+								"conditions": [
+									{
+										"type": "origins:resource",
+										"resource": "celeste:spring_x",
+										"comparison": ">",
+										"compare_to": 0
+									},
+									{
+										"type": "origins:resource",
+										"resource": "celeste:spring_x_pre",
+										"comparison": "<=",
+										"compare_to": 0
+									}
+								]
+							},
+							{
+								"type": "origins:and",
+								"conditions": [
+									{
+										"type": "origins:resource",
+										"resource": "celeste:spring_x",
+										"comparison": "<",
+										"compare_to": 0
+									},
+									{
+										"type": "origins:resource",
+										"resource": "celeste:spring_x_pre",
+										"comparison": ">=",
+										"compare_to": 0
+									}
+								]
+							},
+							{
+								"type": "origins:and",
+								"conditions": [
+									{
+										"type": "origins:resource",
+										"resource": "celeste:spring_z",
+										"comparison": ">",
+										"compare_to": 0
+									},
+									{
+										"type": "origins:resource",
+										"resource": "celeste:spring_z_pre",
+										"comparison": "<=",
+										"compare_to": 0
+									}
+								]
+							},
+							{
+								"type": "origins:and",
+								"conditions": [
+									{
+										"type": "origins:resource",
+										"resource": "celeste:spring_z",
+										"comparison": "<",
+										"compare_to": 0
+									},
+									{
+										"type": "origins:resource",
+										"resource": "celeste:spring_z_pre",
+										"comparison": ">=",
+										"compare_to": 0
+									}
+								]
+							}
+						]
+					},
+
+					"if_action": {
+
+						"type": "origins:and",
+						"actions": [
+
+							{
+								"type": "origins:if_else",
+								"condition": {
+									"type": "origins:resource",
+									"resource": "celeste:spring_x",
+									"comparison": "!=",
+									"compare_to": 0
+								},
+
+								"if_action": {
+									"type": "origins:if_else",
+									"condition": {
+										"type": "origins:resource",
+										"resource": "celeste:spring_x",
+										"comparison": ">",
+										"compare_to": 0
+									},
+									"if_action": { "comment": "x > 0",
+										
+										"type": "origins:if_else",
+										"condition": {
+											"type": "origins:resource",
+											"resource": "celeste:spring_z",
+											"comparison": "!=",
+											"compare_to": 0
+										},
+										"if_action": {
+											"type": "origins:if_else",
+											"condition": {
+												"type": "origins:resource",
+												"resource": "celeste:spring_z",
+												"comparison": ">",
+												"compare_to": 0
+											},
+											"if_action": { "comment": "x > 0 && z > 0 /* yeah I'm a C dev how'd you know? https://cdn.discordapp.com/attachments/813727946681614356/865982051831906304/kerneldev.png */",
+												
+												"type": "origins:execute_command",
+												"command": "execute positioned ~-0.707106781 ~0.5 ~-0.707106781 run function celeste:spring/internal/try_push"
+											},
+											"else_action": { "comment": "x > 0 && z < 0",
+												
+												"type": "origins:execute_command",
+												"command": "execute positioned ~-0.707106781 ~0.5 ~0.707106781 run function celeste:spring/internal/try_push"
+											}
+										},
+										"else_action": { "comment": "x > 0 && !z",
+												
+											"type": "origins:execute_command",
+											"command": "execute positioned ~-1 ~0.5 ~ run function celeste:spring/internal/try_push"
+										}
+									},
+									"else_action": { "comment": "x < 0",
+										
+										"type": "origins:if_else",
+										"condition": {
+											"type": "origins:resource",
+											"resource": "celeste:spring_z",
+											"comparison": "!=",
+											"compare_to": 0
+										},
+										"if_action": {
+											"type": "origins:if_else",
+											"condition": {
+												"type": "origins:resource",
+												"resource": "celeste:spring_z",
+												"comparison": ">",
+												"compare_to": 0
+											},
+											"if_action": { "comment": "x < 0 && z > 0",
+												
+												"type": "origins:execute_command",
+												"command": "execute positioned ~0.707106781 ~0.5 ~-0.707106781 run function celeste:spring/internal/try_push"
+											},
+											"else_action": { "comment": "x < 0 && z < 0",
+												
+												"type": "origins:execute_command",
+												"command": "execute positioned ~0.707106781 ~0.5 ~0.707106781 run function celeste:spring/internal/try_push"
+											}
+										},
+										"else_action": { "comment": "x < 0 && !z",
+												
+											"type": "origins:execute_command",
+											"command": "execute positioned ~1 ~0.5 ~ run function celeste:spring/internal/try_push"
+
+										}
+									}
+								},
+
+								"else_action": { "comment": "!x",
+
+									"type": "origins:if_else",
+									"condition": {
+										"type": "origins:resource",
+										"resource": "celeste:spring_z",
+										"comparison": "!=",
+										"compare_to": 0
+									},
+									"if_action": {
+										"type": "origins:if_else",
+										"condition": {
+											"type": "origins:resource",
+											"resource": "celeste:spring_z",
+											"comparison": ">",
+											"compare_to": 0
+										},
+										"if_action": { "comment": "!x && z > 0",
+												
+											"type": "origins:execute_command",
+											"command": "execute positioned ~ ~0.5 ~-1 run function celeste:spring/internal/try_push"
+										},
+										"else_action": { "comment": "!x && z < 0",
+												
+											"type": "origins:execute_command",
+											"command": "execute positioned ~ ~0.5 ~1 run function celeste:spring/internal/try_push"
+										}
+									}
+								}
+							},
+
+							{
+								"type": "origins:if_else",
+								"condition": {
+									"type": "origins:resource",
+									"resource": "celeste:spring_horizontal_restore_on",
+									"comparison": "!=",
+									"compare_to": 0
+								},
+								"if_action": {
+									"type": "origins:and",
+									"actions": [
+										{
+											"type": "origins:change_resource",
+											"resource": "celeste:mountain_reload",
+											"change": 1
+										},
+										{
+											"type": "origins:change_resource",
+											"resource": "celeste:golden_feather_flying",
+											"change": -50
+										}
+									]
+								}
+							},
+
+							{
+								"type": "origins:trigger_cooldown",
+								"power": "celeste:spring_horizontal_cooldown"
+							}
+						]
+					}
+				},
+
+				{
+					"type": "origins:if_else",
+					"comment": "x_pre = x",
+					"condition": {
+						"type": "origins:resource",
+						"resource": "celeste:spring_x_pre",
+						"comparison": "!=",
+						"compare_to": 0
+					},
+
+					"if_action": { "comment": "x_pre != 0",
+
+						"type": "origins:if_else",
+						"condition": {
+							"type": "origins:resource",
+							"resource": "celeste:spring_x_pre",
+							"comparison": ">",
+							"compare_to": 0
+						},
+
+						"if_action": { "comment": "x_pre > 0",
+
+							"type": "origins:if_else",
+							"condition": {
+								"type": "origins:resource",
+								"resource": "celeste:spring_x",
+								"comparison": "<=",
+								"compare_to": 0
+							},
+
+							"if_action": { "comment": "x_pre > 0 && x <= 0",
+
+								"type": "origins:if_else",
+								"condition": {
+									"type": "origins:resource",
+									"resource": "celeste:spring_x",
+									"comparison": "==",
+									"compare_to": 0
+								},
+
+								"if_action": { "comment": "x_pre > 0 && !x",
+
+									"type": "origins:change_resource",
+									"resource": "celeste:spring_x_pre",
+									"change": -1
+								},
+
+								"else_action": { "comment": "x_pre > 0 && x < 0",
+
+									"type": "origins:change_resource",
+									"resource": "celeste:spring_x_pre",
+									"change": -2
+								}
+							}
+						},
+
+						"else_action": { "comment": "x_pre < 0",
+
+							"type": "origins:if_else",
+							"condition": {
+								"type": "origins:resource",
+								"resource": "celeste:spring_x",
+								"comparison": ">=",
+								"compare_to": 0
+							},
+
+							"if_action": { "comment": "x_pre < 0 && x >= 0",
+
+								"type": "origins:if_else",
+								"condition": {
+									"type": "origins:resource",
+									"resource": "celeste:spring_x",
+									"comparison": "==",
+									"compare_to": 0
+								},
+
+								"if_action": { "comment": "x_pre < 0 && !x",
+
+									"type": "origins:change_resource",
+									"resource": "celeste:spring_x_pre",
+									"change": 1
+								},
+
+								"else_action": { "comment": "x_pre < 0 && x > 0",
+
+									"type": "origins:change_resource",
+									"resource": "celeste:spring_x_pre",
+									"change": 2
+								}
+							}
+						}
+					},
+
+					"else_action": { "comment": "!x_pre",
+
+						"type": "origins:if_else",
+						"condition": {
+							"type": "origins:resource",
+							"resource": "celeste:spring_x",
+							"comparison": "!=",
+							"compare_to": 0
+						},
+
+						"if_action": { "comment": "!x_pre && x != 0",
+
+							"type": "origins:if_else",
+							"condition": {
+								"type": "origins:resource",
+								"resource": "celeste:spring_x",
+								"comparison": ">",
+								"compare_to": 0
+							},
+
+							"if_action": { "comment": "!x_pre && x > 0",
+
+								"type": "origins:change_resource",
+								"resource": "celeste:spring_x_pre",
+								"change": 1
+							},
+
+							"else_action": { "comment": "!x_pre && x < 0",
+
+								"type": "origins:change_resource",
+								"resource": "celeste:spring_x_pre",
+								"change": -1
+							}
+						}
+					}
+				},
+
+				{
+					"type": "origins:if_else",
+					"comment": "z_pre = z",
+					"condition": {
+						"type": "origins:resource",
+						"resource": "celeste:spring_z_pre",
+						"comparison": "!=",
+						"compare_to": 0
+					},
+
+					"if_action": { "comment": "z_pre != 0",
+
+						"type": "origins:if_else",
+						"condition": {
+							"type": "origins:resource",
+							"resource": "celeste:spring_z_pre",
+							"comparison": ">",
+							"compare_to": 0
+						},
+
+						"if_action": { "comment": "z_pre > 0",
+
+							"type": "origins:if_else",
+							"condition": {
+								"type": "origins:resource",
+								"resource": "celeste:spring_z",
+								"comparison": "<=",
+								"compare_to": 0
+							},
+
+							"if_action": { "comment": "z_pre > 0 && z <= 0",
+
+								"type": "origins:if_else",
+								"condition": {
+									"type": "origins:resource",
+									"resource": "celeste:spring_z",
+									"comparison": "==",
+									"compare_to": 0
+								},
+
+								"if_action": { "comment": "z_pre > 0 && !z",
+
+									"type": "origins:change_resource",
+									"resource": "celeste:spring_z_pre",
+									"change": -1
+								},
+
+								"else_action": { "comment": "z_pre > 0 && z < 0",
+
+									"type": "origins:change_resource",
+									"resource": "celeste:spring_z_pre",
+									"change": -2
+								}
+							}
+						},
+
+						"else_action": { "comment": "z_pre < 0",
+
+							"type": "origins:if_else",
+							"condition": {
+								"type": "origins:resource",
+								"resource": "celeste:spring_z",
+								"comparison": ">=",
+								"compare_to": 0
+							},
+
+							"if_action": { "comment": "z_pre < 0 && z >= 0",
+
+								"type": "origins:if_else",
+								"condition": {
+									"type": "origins:resource",
+									"resource": "celeste:spring_z",
+									"comparison": "==",
+									"compare_to": 0
+								},
+
+								"if_action": { "comment": "z_pre < 0 && !z",
+
+									"type": "origins:change_resource",
+									"resource": "celeste:spring_z_pre",
+									"change": 1
+								},
+
+								"else_action": { "comment": "z_pre < 0 && z > 0",
+
+									"type": "origins:change_resource",
+									"resource": "celeste:spring_z_pre",
+									"change": 2
+								}
+							}
+						}
+					},
+
+					"else_action": { "comment": "!z_pre",
+
+						"type": "origins:if_else",
+						"condition": {
+							"type": "origins:resource",
+							"resource": "celeste:spring_z",
+							"comparison": "!=",
+							"compare_to": 0
+						},
+
+						"if_action": { "comment": "!z_pre && z != 0",
+
+							"type": "origins:if_else",
+							"condition": {
+								"type": "origins:resource",
+								"resource": "celeste:spring_z",
+								"comparison": ">",
+								"compare_to": 0
+							},
+
+							"if_action": { "comment": "!z_pre && z > 0",
+
+								"type": "origins:change_resource",
+								"resource": "celeste:spring_z_pre",
+								"change": 1
+							},
+
+							"else_action": { "comment": "!z_pre && z < 0",
+
+								"type": "origins:change_resource",
+								"resource": "celeste:spring_z_pre",
+								"change": -1
+							}
+						}
+					}
+				}
+			]
+		},
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:resource",
+					"resource": "celeste:spring_on",
+					"comparison": ">",
+					"compare_to": 0
+				},
+				{
+					"type": "origins:sneaking",
+					"inverted": true
+				}
+			]
+		}
+	},
+
+	"vertical_on": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 1,
+		"start_value": 1,
+		"hud_render": {
+			"should_render": false
+		}
+	},
+
+	"vertical_cooldown": {
+		"type": "origins:cooldown",
+		"cooldown": 2,
+		"hud_render": {
+			"should_render": false
+		}
+	},
+
+	"vertical": {
+		"type": "origins:action_on_land",
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:if_else",
+					"condition": {
+						"type": "origins:resource",
+						"resource": "celeste:spring_vertical_on",
+						"comparison": "!=",
+						"compare_to": 0
+					},
+					"if_action": {
+						"type": "origins:and",
+						"actions": [
+							{
+								"type": "origins:add_velocity",
+								"y": 0.875
+							},
+							{
+								"type": "origins:execute_command",
+								"command": "function celeste:spring/internal/play_sound"
+							},
+							{
+								"type": "origins:trigger_cooldown",
+								"power": "celeste:spring_vertical_cooldown"
+							}
+						]
+					}
+				},
+				{
+					"type": "origins:if_else",
+					"condition": {
+						"type": "origins:resource",
+						"resource": "celeste:spring_vertical_restore_on",
+						"comparison": "!=",
+						"compare_to": 0
+					},
+					"if_action": {
+						"type": "origins:and",
+						"actions": [
+							{
+								"type": "origins:change_resource",
+								"resource": "celeste:mountain_reload",
+								"change": 1
+							},
+							{
+								"type": "origins:change_resource",
+								"resource": "celeste:golden_feather_flying",
+								"change": -50
+							}
+						]
+					}
+				}
+			]
+		},
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:resource",
+					"resource": "celeste:spring_on",
+					"comparison": ">",
+					"compare_to": 0
+				},
+				{
+					"type": "origins:sneaking",
+					"inverted": true
+				},
+				{
+					"type": "origins:resource",
+					"resource": "celeste:spring_vertical_cooldown",
+					"comparison": "==",
+					"compare_to": 0
+				},
+				{
+					"type": "origins:and",
+					"conditions": [
+						{
+							"type": "origins:entity_type",
+							"entity_type": "minecraft:player"
+						},
+						{
+							"type": "origins:power",
+							"power": "celeste:mountain_climber"
+						},
+						{
+							"type": "origins:resource",
+							"resource": "celeste:mountain_climber_recently_climbed",
+							"comparison": "!=",
+							"compare_to": 0
+						}
+					],
+					"inverted": true
+				},
+				{
+					"type": "origins:in_block_anywhere",
+					"block_condition": {
+						"type": "origins:offset",
+						"y": -1,
+						"condition": {
+							"type": "origins:and",
+							"conditions": [
+								{
+									"type": "origins:block",
+									"block": "minecraft:piston_head"
+								},
+								{
+									"type": "origins:block_state",
+									"property": "facing",
+									"enum": "up"
+								}
+							]
+						}
+					}
+				}
+			]
+		}
+	}
+}

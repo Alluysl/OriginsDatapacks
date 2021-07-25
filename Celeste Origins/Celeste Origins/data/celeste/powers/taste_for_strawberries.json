@@ -1,0 +1,33 @@
+{
+	"type": "origins:modify_food",
+	"name": "Taste For Strawberries",
+	"description": "You enjoy strawberries.",
+	"comment": "Given how prevalent strawberries are in Celeste it wasn't too farfetched to think of this power",
+
+	"item_condition": {
+		"type": "origins:ingredient",
+		"ingredient": {
+			"tag": "celeste:strawberry_food"
+		}
+	},
+
+	"food_modifier": {
+		"name": "Strawberry food points increase",
+		"operation": "addition",
+		"value": 2.0
+	},
+
+	"saturation_modifier": {
+		"name": "Strawberry saturation points increase",
+		"operation": "addition",
+		"value": 0.5
+	},
+
+	"condition": {
+		"type": "origins:block_collision",
+		"comment": "In general in Celeste - unless I'm mistaken - strawberries are collected when and only when standing on solid ground",
+		"offset_x": 0,
+		"offset_y": -0.001,
+		"offset_z": 0
+	}
+}

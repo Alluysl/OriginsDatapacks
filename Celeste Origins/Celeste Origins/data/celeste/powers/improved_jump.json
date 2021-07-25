@@ -1,0 +1,67 @@
+{
+	"type": "origins:multiple",
+	"name": "Improved Jump",
+	"description": "Due to your motivation, you can jump higher - unless you sneak.",
+
+	"on_jump": {
+		"type": "origins:modify_jump",
+		"modifier": {
+			"operation": "addition",
+			"value": 0.175,
+			"comment": "This places the jump height just below 2.5 blocks (2.5 unreachable, 2 and 7 layers of snow reachable)"
+		},
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:execute_command",
+					"command": "particle minecraft:cloud ~ ~ ~ 0.1 0.1 0.1 0 1 normal"
+				},
+				{
+					"type": "origins:if_else",
+					"condition": {
+						"type": "origins:and",
+						"conditions": [
+							{
+								"type": "origins:resource",
+								"resource": "alluyslutil:input_axis_x",
+								"comparison": "==",
+								"compare_to": 0
+							},
+							{
+								"type": "origins:resource",
+								"resource": "alluyslutil:input_axis_z",
+								"comparison": "==",
+								"compare_to": 0
+							}
+						],
+						"comment": "The game already plays a sound if you jump while moving"
+					},
+					"if_action": {
+						"type": "origins:play_sound",
+						"sound": "minecraft:block.stone.step",
+						"volume": 0.1875,
+						"pitch": 1.25
+					}
+				}
+			]
+		},
+		"condition": {
+			"type": "origins:sneaking",
+			"inverted": true
+		}
+	},
+
+	"on_land": {
+		"type": "origins:action_on_land",
+		"entity_action": {
+			"type": "origins:execute_command",
+			"command": "particle minecraft:cloud ~ ~-0.125 ~ 0.2 0.2 0.2 0.1 2 normal"
+		},
+		"condition": {
+			"type": "origins:fall_distance",
+			"comparison": ">",
+			"compare_to": 2
+		}
+	}
+}

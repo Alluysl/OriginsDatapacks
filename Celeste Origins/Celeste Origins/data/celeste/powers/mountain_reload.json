@@ -1,0 +1,88 @@
+{
+	"type": "origins:resource",
+	"min": 0,
+	"max": 1,
+	"hud_render": {
+		"should_render": false
+	},
+	"comment": "Essentially this is like a button, setting the resource to 1 will trigger the max_action and reload the dashes and stamina then set the resource back to 0 for later use",
+	"max_action": {
+		"type": "origins:if_else",
+		"condition": {
+			"type": "origins:entity_type",
+			"entity_type": "minecraft:player"
+		},
+		"if_action": {
+			"type": "origins:and",
+			"actions": [
+
+				{
+					"type": "origins:if_else",
+					"condition": {
+						"type": "origins:power",
+						"power": "celeste:mountain_climber"
+					},
+					"if_action": {
+						"type": "origins:and",
+						"actions": [
+							
+							{
+								"type": "origins:if_else",
+								"condition": {
+									"type": "origins:power",
+									"power": "celeste:reunited"
+								},
+								"if_action": {
+									"type": "origins:change_resource",
+									"resource": "celeste:mountaineer_dash_charges",
+									"change": 2
+								},
+								"else_action": {
+									"type": "origins:if_else",
+									"condition": {
+										"type": "origins:resource",
+										"resource": "celeste:mountaineer_dash_charges",
+										"comparison": "==",
+										"compare_to": 0
+									},
+									"if_action": {
+										"type": "origins:change_resource",
+										"resource": "celeste:mountaineer_dash_charges",
+										"change": 1
+									}
+								}
+							},
+
+							{
+								"type": "origins:change_resource",
+								"resource": "celeste:mountaineer_dash_cooldown",
+								"change": -8
+							}
+						]
+					}
+				},
+
+				{
+					"type": "origins:if_else",
+					"condition": {
+						"type": "origins:power",
+						"power": "celeste:mountain_climber"
+					},
+					"if_action": {
+						"type": "origins:change_resource",
+						"resource": "celeste:mountain_climber_stamina",
+						"change": 2200
+					}
+				},
+
+				{
+					"type": "origins:change_resource",
+					"resource": "celeste:mountain_reload",
+					"change": -1
+				}
+			]
+		}
+	},
+
+	"hidden": true
+}

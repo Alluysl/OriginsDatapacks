@@ -1,0 +1,1 @@
+scoreboard players set $dropOnDestroy clst_rg_crafting 1

@@ -1,0 +1,3 @@
+# The egg will directly summon the feather entity
+# Blaze spawn egg for the yellow color but spawns an item frame
+summon minecraft:item ~ ~ ~ {Item:{id:"minecraft:blaze_spawn_egg",Count:1b,tag:{display:{Name:'{"text":"Feather Spawner","color":"yellow"}',Lore:['{"text":"Use to place a feather against a block"}','{"text":"The block can be removed afterwards"}','{"text":"Punch the feather in creative mode or use a destroyer to remove it"}']}, EntityTag:{id:"minecraft:item_frame",NoAI:1b,NoGravity:1b,CanPickUpLoot:0b,Health:1,Silent:1,Invulnerable:1,DeathLootTable:"celeste:entities/none",Tags:["celeste_feather"],Facing:0b,Invisible:1b,Fixed:1b,ItemDropChance:0.0d,Item:{id:"minecraft:gold_block",Count:1b}}}}}

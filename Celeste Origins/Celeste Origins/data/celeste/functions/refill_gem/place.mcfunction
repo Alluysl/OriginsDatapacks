@@ -1,0 +1,1 @@
+summon minecraft:item_frame ~ ~ ~ {NoAI:1b,NoGravity:1b,CanPickUpLoot:0b,Health:1,Silent:1,Invulnerable:1,DeathLootTable:"celeste:entities/none",Tags:["celeste_refill_gem"],Invisible:1b,Fixed:1b,ItemDropChance:0.0d,Item:{id:"minecraft:emerald_block",Count:1b}}

@@ -1,0 +1,29 @@
+{
+	"name": "Madeline",
+	"description": "And so, I climbed.",
+	"powers": [
+		"celeste:improved_jump",
+		"celeste:mountaineer_dash",
+		"celeste:mountain_climber",
+		"celeste:mountain_reload",
+		"celeste:spring",
+		"celeste:refill_gem",
+		"origins:fall_immunity",
+		"celeste:taste_for_strawberries",
+		"celeste:one_hit",
+		"celeste:fear_of_crystals",
+		"alluyslutil:input"
+	],
+	"icon": {
+		"item": "minecraft:red_concrete_powder"
+	},
+	"order": 2018,
+	"impact": 2,
+	"upgrades": [
+		{
+			"condition": "minecraft:story/enter_the_nether",
+			"origin": "celeste:determined_madeline",
+			"announcement": "You are filled with determination. You might want to check out golden feathers."
+		}
+	]
+}

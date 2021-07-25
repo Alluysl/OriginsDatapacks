@@ -1,0 +1,38 @@
+{
+	"replace": false,
+	"values": [
+
+		{
+			"id": "croptopia:strawberry",
+			"required": false
+		},
+		{
+			"id": "croptopia:fruit_salad",
+			"required": false
+		},
+		{
+			"id": "croptopia:eton_mess",
+			"required": false
+		},
+		{
+			"id": "croptopia:trifle",
+			"required": false
+		},
+		{
+			"id": "croptopia:strawberry_ice_cream",
+			"required": false
+		},
+		{
+			"id": "croptopia:strawberry_jam",
+			"required": false
+		},
+		{
+			"id": "croptopia:strawberry_smoothie",
+			"required": false
+		},
+		{
+			"id": "croptopia:yoghurt",
+			"required": false
+		}
+	]
+}

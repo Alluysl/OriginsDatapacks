@@ -1,0 +1,23 @@
+{
+	"name": "Reunited Madeline",
+	"description": "You have reconciled with the shattered parts of yourself. Your strength is inside.",
+	"powers": [
+		"celeste:reunited",
+		"celeste:improved_jump",
+		"celeste:mountaineer_dash",
+		"celeste:mountain_climber",
+		"celeste:mountain_reload",
+		"celeste:spring",
+		"celeste:refill_gem",
+		"celeste:golden_feather",
+		"origins:fall_immunity",
+		"celeste:taste_for_strawberries",
+		"celeste:one_hit",
+		"alluyslutil:input"
+	],
+	"icon": {
+		"item": "minecraft:pink_concrete_powder"
+	},
+	"impact": 2,
+	"unchoosable": true
+}

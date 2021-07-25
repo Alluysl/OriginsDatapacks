@@ -1,0 +1,58 @@
+{
+	"type": "origins:multiple",
+	"name": "One Hit",
+	"description": "You have a single heart, though a big one, so you take halved damage from non-spiky things.",
+
+	"single_heart": {
+		"type": "origins:attribute",
+		"modifier": {
+			"name": "One heart",
+			"attribute": "minecraft:generic.max_health",
+			"value": -18,
+			"operation": "addition"
+		}
+	},
+
+	"reduced_damage": {
+		"type": "origins:modify_damage_taken",
+		"damage_condition": {
+			"type": "origins:or",
+			"conditions": [
+				{
+					"type": "origins:name",
+					"name": "cactus"
+				},
+				{
+					"type": "origins:name",
+					"name": "arrow"
+				},
+				{
+					"type": "origins:name",
+					"name": "fallingStalactite"
+				},
+				{
+					"type": "origins:name",
+					"name": "stalagmite"
+				},
+				{
+					"type": "origins:name",
+					"name": "sting"
+				},
+				{
+					"type": "origins:name",
+					"name": "sweetBerryBush"
+				},
+				{
+					"type": "origins:name",
+					"name": "thorns"
+				}
+			],
+			"inverted": true
+		},
+		"modifier": {
+			"name": "One Hit halved damage",
+			"operation": "multiply_total",
+			"value": -0.5
+		}
+	}
+}

@@ -1,0 +1,45 @@
+{
+	"type": "origins:stacking_status_effect",
+	"name": "Fear of Crystals",
+	"description": "Your experience in the Mirror Temple has left you with a really bad feeling about crystals - and eyes.",
+
+	"min_stacks": -2,
+	"max_stacks": 8,
+	"duration_per_stack": 20,
+
+	"effects": [
+		{
+			"effect": "minecraft:weakness",
+			"show_particles": false
+		},
+		{
+			"effect": "minecraft:slowness",
+			"amplifier": 1,
+			"show_particles": false
+		}
+	],
+
+	"condition": {
+		"type": "origins:block_in_radius",
+		"radius": 4,
+		"compare_to": 3,
+
+		"block_condition": {
+			"type": "origins:or",
+			"conditions": [
+				{
+					"type": "origins:block",
+					"block": "minecraft:end_portal_frame"
+				},
+				{
+					"type": "origins:block",
+					"block": "minecraft:ender_chest"
+				},
+				{
+					"type": "origins:in_tag",
+					"tag": "celeste:crystals"
+				}
+			]
+		}
+	}
+}

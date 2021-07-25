@@ -1,0 +1,29 @@
+{
+	"name": "Madeline",
+	"description": "And so, I climbed.",
+	"powers": [
+		"celeste:improved_jump",
+		"celeste:mountaineer_dash",
+		"celeste:mountain_climber",
+		"celeste:mountain_reload",
+		"celeste:spring",
+		"celeste:refill_gem",
+		"celeste:golden_feather",
+		"origins:fall_immunity",
+		"celeste:taste_for_strawberries",
+		"celeste:one_hit",
+		"alluyslutil:input"
+	],
+	"icon": {
+		"item": "minecraft:red_concrete_powder"
+	},
+	"unchoosable": true,
+	"impact": 2,
+	"upgrades": [
+		{
+			"condition": "minecraft:end/kill_dragon",
+			"origin": "celeste:reunited_madeline",
+			"announcement": "One and two again."
+		}
+	]
+}

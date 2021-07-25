@@ -1,0 +1,35 @@
+{
+	"type": "origins:action_on_callback",
+	"name": "Reunited",
+	"description": "You have come to terms with the deepest parts of yourself.",
+
+	"entity_action_added": {
+		"type": "origins:if_else",
+		"condition": {
+			"type": "origins:resource",
+			"resource": "celeste:mountaineer_dash_charges",
+			"comparison": "==",
+			"compare_to": 1
+		},
+		"if_action": {
+			"type": "origins:change_resource",
+			"resource": "celeste:mountaineer_dash_charges",
+			"change": 1
+		}
+	},
+
+	"entity_action_removed": {
+		"type": "origins:if_else",
+		"condition": {
+			"type": "origins:resource",
+			"resource": "celeste:mountaineer_dash_charges",
+			"comparison": "==",
+			"compare_to": 2
+		},
+		"if_action": {
+			"type": "origins:change_resource",
+			"resource": "celeste:mountaineer_dash_charges",
+			"change": -1
+		}
+	}
+}

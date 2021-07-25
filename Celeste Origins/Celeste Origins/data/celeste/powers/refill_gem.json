@@ -1,0 +1,116 @@
+{
+	"type": "origins:multiple",
+	"name": "Salvatory Gems",
+	"description": "You can use refill gems that were placed around the world to restore your stamina and dashes.",
+
+	"callbacks": {
+		"type": "origins:action_on_callback",
+		"entity_action_added": {
+			"type": "origins:execute_command",
+			"comment": "By default can't get gems, only if exhausted or not with full dashes",
+			"command": "scoreboard players reset @s clst_rg_schedule"
+		},
+		"entity_action_removed": {
+			"type": "origins:execute_command",
+			"command": "scoreboard players reset @s clst_rg_schedule"
+		}
+	},
+
+	"update": {
+		"type": "origins:action_over_time",
+		"interval": 1,
+
+		"entity_action": {
+			"type": "origins:if_else",
+			"condition": {
+				"type": "origins:command",
+				"command": "execute unless score @s clst_rg_schedule = @s clst_rg_schedule",
+				"comparison": "==",
+				"compare_to": 1
+			},
+
+			"if_action": { "comment": "Not eligible for consuming yet, setting eligible",
+
+				"type": "origins:execute_command",
+				"command": "scoreboard players set @s clst_rg_schedule 0"
+			},
+
+			"else_action": {
+
+				"type": "origins:if_else",
+				"condition": {
+					"type": "origins:command",
+					"command": "execute if score @s clst_rg_schedule matches 1..",
+					"comparison": "==",
+					"compare_to": 1
+				},
+
+				"if_action": { "comment": "Gem has been consumed",
+
+					"type": "origins:change_resource",
+					"resource": "celeste:mountain_reload",
+					"change": 1
+				}
+			}
+		},
+
+		"falling_action": { "comment": "Make non-eligible: conditions not fulfilled",
+			
+			"type": "origins:execute_command",
+			"command": "scoreboard players reset @s clst_rg_schedule"
+		},
+
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:entity_type",
+					"entity_type": "minecraft:player"
+				},
+				{
+					"type": "origins:resource",
+					"resource": "celeste:mountain_reload",
+					"comparison": "==",
+					"compare_to": 0
+				},
+				{
+					"type": "origins:or",
+					"conditions": [
+						{
+							"type": "origins:power_active",
+							"power": "celeste:mountain_climber_tired"
+						},
+						{
+							"type": "origins:or",
+							"comment": "If the player doesn't have all of their dashes",
+
+							"conditions": [
+								{
+									"type": "origins:resource",
+									"resource": "celeste:mountaineer_dash_charges",
+									"comparison": "<",
+									"compare_to": 1
+								},
+								{
+									"type": "origins:and",
+									"conditions": [
+										{
+											"type": "origins:power",
+											"power": "celeste:reunited"
+										},
+										{
+											"type": "origins:resource",
+											"resource": "celeste:mountaineer_dash_charges",
+											"comparison": "<",
+											"compare_to": 2
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	}
+}

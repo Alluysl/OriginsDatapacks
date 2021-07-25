@@ -1,0 +1,157 @@
+{
+	"type": "origins:multiple",
+	"name": "Feathers of Gold",
+	"description": "Touching golden feathers allows you to fly for a short moment.",
+
+	"callbacks": {
+		"type": "origins:action_on_callback",
+		"entity_action_added": {
+			"type": "origins:execute_command",
+			"command": "scoreboard players set @s clst_ft_schedule 0"
+		},
+		"entity_action_removed": {
+			"type": "origins:execute_command",
+			"command": "scoreboard players reset @s clst_ft_schedule"
+		}
+	},
+
+	"flying": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 50,
+		"hud_render": {
+			"should_render": true,
+			"sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_03.png",
+			"bar_index": 23,
+			"condition": {
+				"type": "origins:resource",
+				"resource": "celeste:golden_feather_flying",
+				"comparison": ">",
+				"compare_to": 0
+			}
+		}
+	},
+
+	"flight": {
+		"type": "origins:swimming",
+		"condition": {
+			"type": "origins:resource",
+			"resource": "celeste:golden_feather_flying",
+			"comparison": ">",
+			"compare_to": 0
+		}
+	},
+
+	"golden_color": {
+		"type": "origins:model_color",
+		"blue": 0.5,
+		"condition": {
+			"type": "origins:resource",
+			"resource": "celeste:golden_feather_flying",
+			"comparison": ">",
+			"compare_to": 0
+		}
+	},
+
+	"update_state": {
+		"type": "origins:action_over_time",
+		"interval": 2,
+
+		"entity_action": { "comment": "Consumed feather",
+			
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:execute_command",
+					"command": "scoreboard players set @s clst_ft_schedule 0",
+					"comment": "Make self eligible for future feathers"
+				},
+				{
+					"type": "origins:change_resource",
+					"resource": "celeste:golden_feather_flying",
+					"change": 50,
+					"comment": "Start flight"
+				},
+				{
+					"type": "origins:change_resource",
+					"resource": "celeste:mountain_reload",
+					"change": 1,
+					"comment": "Refresh dashes and stamina"
+				}
+			]
+		},
+
+		"condition": {
+			"type": "origins:command",
+			"command": "execute if score @s clst_ft_schedule matches 1",
+			"comparison": "==",
+			"compare_to": 1
+		}
+	},
+
+	"update": {
+		"type": "origins:action_over_time",
+		"interval": 1,
+
+		"entity_action": {
+			"type": "origins:if_else",
+			"condition": {
+				"type": "origins:or",
+				"conditions": [
+					{
+						"type": "origins:block_collision",
+						"offset_x": -0.001,
+						"offset_y": -0.001,
+						"offset_z": -0.001
+					},
+					{
+						"type": "origins:block_collision",
+						"offset_x": 0.001,
+						"offset_y": 0.001,
+						"offset_z": 0.001
+					}
+				]
+			},
+			"if_action": {
+				"type": "origins:change_resource",
+				"resource": "celeste:golden_feather_flying",
+				"change": -50
+			},
+			"else_action": {
+				"type": "origins:change_resource",
+				"resource": "celeste:golden_feather_flying",
+				"change": -1
+			}
+		}
+	},
+
+	"sfx": {
+		"type": "origins:action_over_time",
+		"interval": 8,
+
+		"rising_action": {
+			"type": "origins:play_sound",
+			"sound": "minecraft:block.beacon.activate",
+			"pitch": 2
+		},
+
+		"entity_action": {
+			"type": "origins:play_sound",
+			"sound": "minecraft:block.beacon.ambient",
+			"pitch": 2
+		},
+
+		"falling_action": {
+			"type": "origins:play_sound",
+			"sound": "minecraft:block.beacon.deactivate",
+			"pitch": 2
+		},
+
+		"condition": {
+			"type": "origins:resource",
+			"resource": "celeste:golden_feather_flying",
+			"comparison": ">",
+			"compare_to": 0
+		}
+	}
+}

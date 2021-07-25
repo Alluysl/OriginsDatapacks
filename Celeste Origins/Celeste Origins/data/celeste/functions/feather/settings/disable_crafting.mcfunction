@@ -1,0 +1,1 @@
+scoreboard players set $on clst_ft_crafting 0

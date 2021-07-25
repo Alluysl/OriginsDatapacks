@@ -1,0 +1,1 @@
+scoreboard players set $dropOnDestroy clst_ft_crafting 0
