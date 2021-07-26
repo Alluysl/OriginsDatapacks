@@ -1,6 +1,6 @@
 {
 	"type": "origins:stacking_status_effect",
-	"name": "Fear of Crystals",
+	"name": "§cFear of Crystals",
 	"description": "Your experience in the Mirror Temple has left you with a really bad feeling about crystals - and eyes.",
 
 	"min_stacks": -2,

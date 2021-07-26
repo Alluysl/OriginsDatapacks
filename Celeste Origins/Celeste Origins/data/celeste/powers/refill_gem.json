@@ -1,7 +1,7 @@
 {
 	"type": "origins:multiple",
-	"name": "Salvatory Gems",
-	"description": "You can use refill gems that were placed around the world to restore your stamina and dashes.",
+	"name": "§2Salvatory Gems",
+	"description": "You can touch refill gems to restore your stamina and dashes.",
 
 	"callbacks": {
 		"type": "origins:action_on_callback",

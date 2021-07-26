@@ -1,5 +1,5 @@
 {
-	"name": "Crippled Madeline",
+	"name": "§3Crippled Madeline",
 	"description": "The End dimension really doesn't fit well with you, but if you get through it, you'll come out stronger.",
 	"powers": [
 		"celeste:improved_jump",
@@ -8,10 +8,11 @@
 		"celeste:mountain_reload",
 		"celeste:spring",
 		"celeste:refill_gem",
-		"origins:fall_immunity",
+		"celeste:fall_immunity",
 		"celeste:taste_for_strawberries",
 		"celeste:one_hit",
-		"celeste:fear_of_crystals"
+		"celeste:fear_of_crystals",
+		"celeste:credits"
 	],
 	"icon": {
 		"item": "minecraft:cyan_concrete_powder"

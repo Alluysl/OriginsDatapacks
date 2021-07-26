@@ -1,6 +1,6 @@
 {
 	"type": "origins:multiple",
-	"name": "Spring Parkour",
+	"name": "§6Spring Parkour",
 	"description": "Pistons help you move around by pushing you if you don't sneak.",
 
 	"on": {

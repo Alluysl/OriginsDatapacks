@@ -1,6 +1,6 @@
 {
 	"type": "origins:multiple",
-	"name": "One Hit",
+	"name": "§cOne Hit",
 	"description": "You have a single heart, though a big one, so you take halved damage from non-spiky things.",
 
 	"single_heart": {

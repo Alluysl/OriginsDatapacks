@@ -1,6 +1,6 @@
 {
 	"type": "origins:multiple",
-	"name": "Improved Jump",
+	"name": "§aImproved Jump",
 	"description": "Due to your motivation, you can jump higher - unless you sneak.",
 
 	"on_jump": {

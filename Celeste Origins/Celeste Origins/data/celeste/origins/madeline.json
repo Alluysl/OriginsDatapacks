@@ -1,5 +1,5 @@
 {
-	"name": "Madeline",
+	"name": "§4Madeline",
 	"description": "And so, I climbed.",
 	"powers": [
 		"celeste:improved_jump",
@@ -8,11 +8,12 @@
 		"celeste:mountain_reload",
 		"celeste:spring",
 		"celeste:refill_gem",
-		"origins:fall_immunity",
+		"celeste:fall_immunity",
 		"celeste:taste_for_strawberries",
 		"celeste:one_hit",
 		"celeste:fear_of_crystals",
-		"alluyslutil:input"
+		"alluyslutil:input",
+		"celeste:credits"
 	],
 	"icon": {
 		"item": "minecraft:red_concrete_powder"

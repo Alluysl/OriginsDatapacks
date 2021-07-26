@@ -1,6 +1,6 @@
 {
 	"type": "origins:multiple",
-	"name": "Feathers of Gold",
+	"name": "§eFeathers of Gold",
 	"description": "Touching golden feathers allows you to fly for a short moment.",
 
 	"callbacks": {

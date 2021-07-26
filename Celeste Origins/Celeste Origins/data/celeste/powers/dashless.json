@@ -1,6 +1,6 @@
 {
 	"type": "origins:model_color",
-	"name": "Dashless",
+	"name": "§3Dashless",
 	"description": "You're unable to dash.",
 	"red": 0.75
 }

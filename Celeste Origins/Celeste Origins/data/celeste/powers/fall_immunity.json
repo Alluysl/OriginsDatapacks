@@ -1,0 +1,10 @@
+{
+	"type": "origins:invulnerability",
+	"name": "§aAcrobatics",
+	"description": "You never take fall damage, no matter from which height you fall.",
+	"comment": "For consistency in the display of the power's name",
+	"damage_condition": {
+		"type": "origins:name",
+		"name": "fall"
+	}
+}
