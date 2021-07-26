@@ -16,6 +16,6 @@ execute if score @s clst_rg_rwn_time matches 0.. run scoreboard players remove @
 
 # If consuming player comes close, make them run the consume function (which removes their closest gem - not perfect but the other option is to select the player twice which isn't great either)
 # Credits: https://www.youtube.com/watch?v=kKS3sF0X4Is
-execute if score @s clst_rg_rwn_time matches ..0 at @s positioned ~-0.3333 ~-0.3333 ~-0.3333 as @e[type=minecraft:player,dx=0,sort=nearest,limit=1] positioned ~-0.3333 ~-0.3333 ~-0.3333 if entity @s[dx=0] if score @s clst_rg_schedule = @s clst_rg_schedule positioned ~0.6666 ~0.6666 ~0.6666 run function celeste:refill_gem/internal/consume
+execute if score @s clst_rg_rwn_time matches ..0 at @s positioned ~-0.3333 ~-0.3333 ~-0.3333 as @a[dx=0,sort=nearest,limit=1] positioned ~-0.3333 ~-0.3333 ~-0.3333 if entity @s[dx=0] if score @s clst_rg_schedule = @s clst_rg_schedule positioned ~0.6666 ~0.6666 ~0.6666 run function celeste:refill_gem/internal/consume
 
 # Thanks to eggohito for the little performance/cleanness improvements
