@@ -1,0 +1,11 @@
+{
+	"name": "Guardian Laser Example Origin",
+	"description": "Just an origin to show the power, with water vision/breathing for quality of life.",
+	"powers": [
+		"guardian_laser_example:guardian_laser",
+		"origins:water_vision",
+		"origins:water_breathing"
+	],
+	"impact": 0,
+	"order": 0
+}

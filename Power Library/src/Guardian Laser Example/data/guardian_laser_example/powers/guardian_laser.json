@@ -1,0 +1,175 @@
+{
+	"type": "origins:multiple",
+	"name": "Guardian Laser",
+	"description": "The power itself! Made by Alluysl, ping me for explanation or help but if it's the latter please only questions specific to this power, not how to install a datapack or how to integrate this into your origin, others can answer.",
+
+	"cooldown": {
+		"type": "origins:cooldown",
+		"cooldown": 60,
+		"hud_render": {
+			"sprite_location": "origins:textures/gui/community/huang/resource_bar_02.png",
+			"bar_index": 6
+		}
+	},
+
+	"charge": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 40,
+		"hud_render": {
+			"sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_02.png",
+			"bar_index": 7,
+			"condition": {
+				"type": "origins:resource",
+				"resource": "*:*_charge",
+				"comparison": ">",
+				"compare_to": 0
+			}
+		},
+		"max_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:if_else",
+					"condition": {
+						"type": "origins:or",
+						"conditions": [
+							{
+								"type": "origins:swimming"
+							},
+							{
+								"type": "origins:fall_flying"
+							}
+						]
+					},
+					"if_action": {
+						"type": "origins:execute_command",
+						"command": "function guardian_laser_example:guardian_laser/shoot_leaning"
+					},
+					"else_action": {
+						"type": "origins:if_else",
+						"condition": {
+							"type": "origins:sneaking"
+						},
+						"if_action": {
+							"type": "origins:execute_command",
+							"command": "function guardian_laser_example:guardian_laser/shoot_sneaking"
+						},
+						"else_action": {
+							"type": "origins:execute_command",
+							"command": "function guardian_laser_example:guardian_laser/shoot"
+						}
+					}
+				},
+				{
+					"type": "origins:trigger_cooldown",
+					"power": "*:*_cooldown"
+				}
+			]
+		}
+	},
+
+	"pressed": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 4,
+		"hud_render": {
+			"should_render": false
+		},
+		"min_action": {
+			"type": "origins:change_resource",
+			"resource": "*:*_charge",
+			"change": -40
+		}
+	},
+
+	"tick_up": {
+		"type": "origins:active_self",
+		"cooldown": 1,
+		"key": {
+			"key": "key.origins.primary_active",
+			"continuous": true
+		},
+		"hud_render": {
+			"should_render": false
+		},
+
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:change_resource",
+					"resource": "*:*_pressed",
+					"change": 4
+				},
+				{
+					"type": "origins:change_resource",
+					"resource": "*:*_charge",
+					"change": 1
+				},
+				{
+					"type": "origins:if_else",
+					"condition": {
+						"type": "origins:or",
+						"conditions": [
+							{
+								"type": "origins:swimming"
+							},
+							{
+								"type": "origins:fall_flying"
+							}
+						]
+					},
+					"if_action": {
+						"type": "origins:execute_command",
+						"command": "function guardian_laser_example:guardian_laser/charge_leaning"
+					},
+					"else_action": {
+						"type": "origins:if_else",
+						"condition": {
+							"type": "origins:sneaking"
+						},
+						"if_action": {
+							"type": "origins:execute_command",
+							"command": "function guardian_laser_example:guardian_laser/charge_sneaking"
+						},
+						"else_action": {
+							"type": "origins:execute_command",
+							"command": "function guardian_laser_example:guardian_laser/charge"
+						}
+					}
+				}
+			]
+		},
+
+		"condition": {
+			"type": "origins:resource",
+			"resource": "*:*_cooldown",
+			"comparison": "==",
+			"compare_to": 0
+		}
+	},
+
+	"tick_down": {
+		"type": "origins:action_over_time",
+		"interval": 1,
+
+		"entity_action": {
+			"type": "origins:change_resource",
+			"resource": "*:*_pressed",
+			"change": -1
+		},
+
+		"rising_action": {
+			"type": "origins:play_sound",
+			"sound": "minecraft:entity.guardian.attack"
+		},
+
+		"condition": {
+			"type": "origins:resource",
+			"resource": "*:*_pressed",
+			"comparison": ">",
+			"compare_to": 0
+		}
+	}
+}
