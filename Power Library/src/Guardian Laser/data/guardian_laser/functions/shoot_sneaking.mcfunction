@@ -5,6 +5,6 @@ scoreboard players set @s grdnlazr_raycast 0
 tag @s add guardian_laser_immune
 
 # Start raycasting
-execute positioned ~ ~1.25 ~ run function guardian_laser_example:guardian_laser/raycast_shoot
+execute positioned ~ ~1.25 ~ run function guardian_laser:raycast_shoot
 
 tag @s remove guardian_laser_immune

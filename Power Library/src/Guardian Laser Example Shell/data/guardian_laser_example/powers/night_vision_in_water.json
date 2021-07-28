@@ -1,0 +1,9 @@
+{
+	"name": "Super-wet Eyes",
+	"description": "You see as well underwater as you do on land, but this time it's not toggleable!",
+	"type": "origins:night_vision",
+	"condition": {
+		"type": "origins:submerged_in",
+		"fluid": "minecraft:water"
+	}
+}

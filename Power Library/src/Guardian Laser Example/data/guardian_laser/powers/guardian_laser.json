@@ -1,7 +1,7 @@
 {
 	"type": "origins:multiple",
 	"name": "Guardian Laser",
-	"description": "The power itself! Made by Alluysl, ping me for explanation or help but if it's the latter please only questions specific to this power, not how to install a datapack or how to integrate this into your origin, others can answer.",
+	"description": "You can charge a laser by holding your primary key. After two seconds it fires and damages the first entity it hits.",
 
 	"cooldown": {
 		"type": "origins:cooldown",
@@ -44,7 +44,7 @@
 					},
 					"if_action": {
 						"type": "origins:execute_command",
-						"command": "function guardian_laser_example:guardian_laser/shoot_leaning"
+						"command": "function guardian_laser:shoot_leaning"
 					},
 					"else_action": {
 						"type": "origins:if_else",
@@ -53,11 +53,11 @@
 						},
 						"if_action": {
 							"type": "origins:execute_command",
-							"command": "function guardian_laser_example:guardian_laser/shoot_sneaking"
+							"command": "function guardian_laser:shoot_sneaking"
 						},
 						"else_action": {
 							"type": "origins:execute_command",
-							"command": "function guardian_laser_example:guardian_laser/shoot"
+							"command": "function guardian_laser:shoot"
 						}
 					}
 				},
@@ -122,7 +122,7 @@
 					},
 					"if_action": {
 						"type": "origins:execute_command",
-						"command": "function guardian_laser_example:guardian_laser/charge_leaning"
+						"command": "function guardian_laser:charge_leaning"
 					},
 					"else_action": {
 						"type": "origins:if_else",
@@ -131,11 +131,11 @@
 						},
 						"if_action": {
 							"type": "origins:execute_command",
-							"command": "function guardian_laser_example:guardian_laser/charge_sneaking"
+							"command": "function guardian_laser:charge_sneaking"
 						},
 						"else_action": {
 							"type": "origins:execute_command",
-							"command": "function guardian_laser_example:guardian_laser/charge"
+							"command": "function guardian_laser:charge"
 						}
 					}
 				}

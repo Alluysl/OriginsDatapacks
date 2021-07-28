@@ -7,4 +7,4 @@ execute if score #temp grdnlazr_raycast matches 0 run particle minecraft:bubble 
 scoreboard players add @s grdnlazr_raycast 1
 
 # Unless inside solid block or counter reached max, iterate recursively
-execute unless score @s grdnlazr_raycast >= $maxIterations grdnlazr_raycast unless block ~ ~ ~ #community:solid positioned ^ ^ ^0.125 run function guardian_laser_example:guardian_laser/raycast_charge
+execute unless score @s grdnlazr_raycast >= $maxIterations grdnlazr_raycast unless block ~ ~ ~ #community:solid positioned ^ ^ ^0.125 run function guardian_laser:raycast_charge
