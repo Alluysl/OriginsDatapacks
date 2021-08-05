@@ -157,10 +157,7 @@
             "required": false,
             "id": "minecraft:cake"
         },
-        {
-            "required": false,
-            "id": "#minecraft:carpets"
-        },
+        "#minecraft:carpets",
         {
             "required": false,
             "id": "minecraft:cauldron"
@@ -285,10 +282,7 @@
             "required": false,
             "id": "minecraft:conduit"
         },
-        {
-            "required": false,
-            "id": "#minecraft:coral_blocks"
-        },
+        "#minecraft:coral_blocks",
         {
             "required": false,
             "id": "minecraft:crafting_table"
@@ -357,10 +351,7 @@
             "required": false,
             "id": "minecraft:podzol"
         },
-        {
-            "required": false,
-            "id": "#minecraft:doors"
-        },
+        "#minecraft:doors",
         {
             "required": false,
             "id": "minecraft:dropper"
@@ -585,10 +576,7 @@
             "required": false,
             "id": "minecraft:granite"
         },
-        {
-            "required": false,
-            "id": "#minecraft:anvil"
-        },
+        "#minecraft:anvil",
         {
             "required": false,
             "id": "minecraft:black_concrete_powder"
@@ -661,10 +649,7 @@
             "required": false,
             "id": "minecraft:gravel"
         },
-        {
-            "required": false,
-            "id": "#minecraft:sand"
-        },
+        "#minecraft:sand",
         {
             "required": false,
             "id": "minecraft:creeper_head"
@@ -745,18 +730,12 @@
             "required": false,
             "id": "minecraft:ladder"
         },
-        {
-            "required": false,
-            "id": "#minecraft:leaves"
-        },
+        "#minecraft:leaves",
         {
             "required": false,
             "id": "minecraft:lily_pad"
         },
-        {
-            "required": false,
-            "id": "#minecraft:logs"
-        },
+        "#minecraft:logs",
         {
             "required": false,
             "id": "minecraft:melon"
@@ -833,10 +812,7 @@
             "required": false,
             "id": "minecraft:sticky_piston"
         },
-        {
-            "required": false,
-            "id": "#minecraft:planks"
-        },
+        "#minecraft:planks",
         {
             "required": false,
             "id": "minecraft:polished_andesite"
@@ -1469,10 +1445,7 @@
             "required": false,
             "id": "minecraft:turtle_egg"
         },
-        {
-            "required": false,
-            "id": "#minecraft:wool"
-        },
+        "#minecraft:wool",
         {
             "required": false,
             "id": "minecraft:amethyst_block"
