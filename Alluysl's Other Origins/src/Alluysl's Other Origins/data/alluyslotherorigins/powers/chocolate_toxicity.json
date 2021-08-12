@@ -1,0 +1,29 @@
+{
+	"type": "origins:action_on_item_use",
+	"item_condition": {
+		"type": "origins:ingredient",
+		"ingredient": {
+			"tag": "alluyslotherorigins:chocolate"
+		}
+	},
+	"entity_action": {
+		"type": "origins:choice",
+		"actions": [
+			{
+				"element": {
+					"type": "origins:execute_command",
+					"command": "effect give @s minecraft:instant_damage"
+				},
+				"weight": 1
+			},
+			{
+				"element": {
+					"type": "origins:execute_command",
+					"command": "effect give @s minecraft:poison 10"
+				},
+				"weight": 1
+			}
+		]
+	},
+	"hidden": true
+}

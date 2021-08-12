@@ -1,0 +1,122 @@
+{
+	"name": "Small",
+	"description": "You're one block tall.",
+	"type": "origins:action_on_callback",
+
+	"entity_action_added": {
+		"type": "origins:and",
+		"actions": [
+			{
+				"type": "origins:execute_command",
+				"command": "scale delay set pehkui:height 2 @s"
+			},
+			{
+				"type": "origins:execute_command",
+				"command": "scale set pehkui:height 0.5 @s"
+			},
+			{
+				"type": "origins:execute_command",
+				"command": "scale delay set pehkui:width 2 @s"
+			},
+			{
+				"type": "origins:execute_command",
+				"command": "scale set pehkui:width 0.625 @s"
+			},
+			{
+				"type": "origins:delay",
+				"ticks": 20,
+				"action": {
+					"type": "origins:and",
+					"actions": [
+						{
+							"type": "origins:execute_command",
+							"command": "scale delay reset pehkui:height"
+						},
+						{
+							"type": "origins:execute_command",
+							"command": "scale delay reset pehkui:width"
+						}
+					]
+				}
+			}
+		]
+	},
+
+	"entity_action_respawned": {
+		"type": "origins:and",
+		"actions": [
+			{
+				"type": "origins:execute_command",
+				"command": "scale delay set pehkui:height 2 @s"
+			},
+			{
+				"type": "origins:execute_command",
+				"command": "scale set pehkui:height 0.5"
+			},
+			{
+				"type": "origins:execute_command",
+				"command": "scale delay set pehkui:width 2 @s"
+			},
+			{
+				"type": "origins:execute_command",
+				"command": "scale set pehkui:width 0.625 @s"
+			},
+			{
+				"type": "origins:delay",
+				"ticks": 20,
+				"action": {
+					"type": "origins:and",
+					"actions": [
+						{
+							"type": "origins:execute_command",
+							"command": "scale delay reset pehkui:height"
+						},
+						{
+							"type": "origins:execute_command",
+							"command": "scale delay reset pehkui:width"
+						}
+					]
+				}
+			}
+		]
+	},
+
+	"entity_action_lost": {
+		"type": "origins:and",
+		"actions": [
+			{
+				"type": "origins:execute_command",
+				"command": "scale delay set pehkui:height 2 @s"
+			},
+			{
+				"type": "origins:execute_command",
+				"command": "scale set pehkui:height 1 @s"
+			},
+			{
+				"type": "origins:execute_command",
+				"command": "scale delay set pehkui:width 2 @s"
+			},
+			{
+				"type": "origins:execute_command",
+				"command": "scale set pehkui:width 1 @s"
+			},
+			{
+				"type": "origins:delay",
+				"ticks": 20,
+				"action": {
+					"type": "origins:and",
+					"actions": [
+						{
+							"type": "origins:execute_command",
+							"command": "scale delay reset pehkui:height"
+						},
+						{
+							"type": "origins:execute_command",
+							"command": "scale delay reset pehkui:width"
+						}
+					]
+				}
+			}
+		]
+	}
+}

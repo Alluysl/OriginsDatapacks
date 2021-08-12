@@ -1,0 +1,21 @@
+{
+	"name": "Chicken",
+	"description": "Less human than avians, you retained a lot of the traits of your ancestors.",
+	"powers": [
+		"alluyslotherorigins:small",
+		"alluyslotherorigins:wing_flap",
+		"origins:slow_falling",
+		"origins:lay_eggs",
+		"alluyslotherorigins:need_for_air",
+		"origins:fragile",
+		"origins:vegetarian",
+		"alluyslotherorigins:weak_to_felines",
+		"alluyslotherorigins:chocolate_toxicity",
+		"alluyslotherorigins:credits"
+	],
+	"icon": {
+		"item": "minecraft:egg"
+	},
+	"order": 0,
+	"impact": 1
+}

@@ -1,0 +1,35 @@
+{
+	"name": "Weak to Felines",
+	"description": "As a prey of felines, you receive more damage from their attacks.",
+	"type": "origins:modify_damage_taken",
+	"damage_condition": {
+		"type": "origins:attacker",
+		"entity_condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:entity_type",
+					"entity_type": "minecraft:player"
+				},
+				{
+					"type": "origins:or",
+					"conditions": [
+						{
+							"type": "origins:origin",
+							"origin": "origins:feline"
+						},
+						{
+							"type": "origins:power",
+							"power": "origins:nine_lives"
+						}
+					]
+				}
+			]
+		}
+	},
+	"modifier": {
+		"name": "Weakness to felines",
+		"operation": "multiply_total",
+		"value": 0.5
+	}
+}

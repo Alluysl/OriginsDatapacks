@@ -1,0 +1,88 @@
+{
+	"type": "origins:action_on_wake_up",
+	"name": "Large Eggs",
+	"description": "Everytime you wake up, you lay a massive egg",
+	"entity_action": {
+		"type": "origins:and",
+		"actions": [
+			{
+				"type": "origins:spawn_entity",
+				"entity_type": "minecraft:item",
+				"tag": "{Item:{id:\"minecraft:egg\",Count:1b},PickupDelay:20}",
+				"entity_action": {
+					"type": "origins:choice",
+					"actions": [
+						{
+							"element": {
+								"type": "origins:and",
+								"actions": [
+									{
+										"type": "origins:execute_command",
+										"command": "scale delay set 1 @s"
+									},
+									{
+										"type": "origins:execute_command",
+										"command": "scale set 2 @s"
+									},
+									{
+										"type": "origins:execute_command",
+										"command": "tp @a[sort=nearest,limit=1]"
+									}
+								]
+							},
+							"weight": 992
+						},
+						{
+							"comment": "Easter egg lel (not a pun)",
+							"element": {
+								"type": "origins:and",
+								"actions": [
+									{
+										"type": "origins:execute_command",
+										"command": "scale delay set 1 @s"
+									},
+									{
+										"type": "origins:execute_command",
+										"command": "scale set 4 @s"
+									},
+									{
+										"type": "origins:execute_command",
+										"command": "tp @a[sort=nearest,limit=1]"
+									}
+								]
+							},
+							"weight": 31
+						},
+						{
+							"comment": "Super rare one",
+							"element": {
+								"type": "origins:and",
+								"actions": [
+									{
+										"type": "origins:execute_command",
+										"command": "scale delay set 1 @s"
+									},
+									{
+										"type": "origins:execute_command",
+										"command": "scale set 6 @s"
+									},
+									{
+										"type": "origins:execute_command",
+										"command": "tp @a[sort=nearest,limit=1]"
+									}
+								]
+							},
+							"weight": 1
+						}
+					]
+				}
+			},
+			{
+				"type": "origins:play_sound",
+				"sound": "minecraft:entity.chicken.egg",
+				"volume": 2,
+				"pitch": 0.5
+			}
+		]
+	}
+}

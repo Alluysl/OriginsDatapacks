@@ -1,0 +1,119 @@
+{
+	"name": "Fast Heart",
+	"description": "Your heart pumps blood into your body at a high rate, making you attack faster when satiated enough, and weak when hungry.",
+	"type": "origins:multiple",
+
+	"faster": {
+		"type": "origins:conditioned_attribute",
+		"modifier": {
+			"name": "Fast Heart big attack speed boost",
+			"attribute": "minecraft:generic.attack_speed",
+			"operation": "multiply_total",
+			"value": 1
+		},
+		"condition": {
+			"type": "origins:food_level",
+			"comparison": ">=",
+			"compare_to": 16
+		}
+	},
+
+	"faster_particles": {
+		"type": "origins:particle",
+		"particle": "minecraft:falling_honey",
+		"frequency": 15,
+		"condition": {
+			"type": "origins:power_active",
+			"power": "alluyslotherorigins:fast_heart_faster"
+		}
+	},
+
+	"fast": {
+		"type": "origins:conditioned_attribute",
+		"modifier": {
+			"name": "Fast Heart small attack speed boost",
+			"attribute": "minecraft:generic.attack_speed",
+			"operation": "multiply_total",
+			"value": 0.5
+		},
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:food_level",
+					"comparison": "<",
+					"compare_to": 16
+				},
+				{
+					"type": "origins:food_level",
+					"comparison": ">=",
+					"compare_to": 12
+				}
+			]
+		}
+	},
+
+	"fast_particles": {
+		"type": "origins:particle",
+		"particle": "minecraft:falling_honey",
+		"frequency": 60,
+		"condition": {
+			"type": "origins:power_active",
+			"power": "alluyslotherorigins:fast_heart_fast"
+		}
+	},
+
+	"slow": {
+		"type": "origins:stacking_status_effect",
+		"min_stacks": 0,
+		"max_stacks": 1,
+		"duration_per_stack": 20,
+		"effect": {
+			"effect": "minecraft:weakness",
+			"is_ambient": true,
+			"show_particles": true,
+			"show_icon": true
+		},
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:food_level",
+					"comparison": "<",
+					"compare_to": 8
+				},
+				{
+					"type": "origins:food_level",
+					"comparison": ">=",
+					"compare_to": 4
+				}
+			]
+		}
+	},
+
+	"slower": {
+		"type": "origins:stacking_status_effect",
+		"min_stacks": 0,
+		"max_stacks": 2,
+		"duration_per_stack": 40,
+		"effects": [
+			{
+				"effect": "minecraft:weakness",
+				"is_ambient": true,
+				"show_particles": true,
+				"show_icon": true
+			},
+			{
+				"effect": "minecraft:mining_fatigue",
+				"is_ambient": true,
+				"show_particles": false,
+				"show_icon": true
+			}
+		],
+		"condition": {
+			"type": "origins:food_level",
+			"comparison": "<",
+			"compare_to": 4
+		}
+	}
+}

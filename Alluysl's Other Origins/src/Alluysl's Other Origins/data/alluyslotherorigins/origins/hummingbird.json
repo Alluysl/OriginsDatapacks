@@ -1,0 +1,24 @@
+{
+	"name": "Hummingbird",
+	"description": "As tiny nectar-harvesting birds, hummingbirds buzz away in search of sugar.",
+	"powers": [
+		"alluyslotherorigins:buzzing_flight",
+		"alluyslotherorigins:tiny",
+		"alluyslotherorigins:fast_heart",
+		"alluyslotherorigins:sugar_preference",
+		"alluyslotherorigins:its_not_a_bug_its_a_feature",
+		"alluyslotherorigins:short_life",
+		"alluyslotherorigins:unfit_for_walking",
+		"alluyslotherorigins:no_elytra",
+		"alluyslotherorigins:redundant_wings_dummy",
+		"origins:light_armor",
+		"alluyslotherorigins:chocolate_toxicity",
+		"alluyslotherorigins:input",
+		"alluyslotherorigins:credits"
+	],
+	"icon": {
+		"item": "minecraft:honey_bottle"
+	},
+	"order": 4,
+	"impact": 3
+}

@@ -1,0 +1,1 @@
+execute store result score @s alut-pitch run data get entity @s Rotation[1]

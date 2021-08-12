@@ -1,0 +1,10 @@
+{
+	"name": "Infinite",
+	"description": " ",
+	"powers": [
+		"origins:fall_immunity"
+	],
+	"order": 9001,
+	"icon": "minecraft:feather",
+	"unchoosable": true
+}

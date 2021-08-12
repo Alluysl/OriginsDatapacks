@@ -1,0 +1,11 @@
+{
+	"name": "Unfit for Walking",
+	"description": "Your anatomy has not evolved to provide you with the best ability to walk, making you slower on land.",
+	"type": "origins:attribute",
+	"modifier": {
+		"name": "Can barely walk",
+		"attribute": "minecraft:generic.movement_speed",
+		"operation": "addition",
+		"value": -0.05
+	}
+}

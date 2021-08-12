@@ -1,0 +1,11 @@
+{
+	"name": "fall immunity count",
+	"origins": [
+		"alluyslotherorigins:fall_immunities/zero",
+		"alluyslotherorigins:fall_immunities/one",
+		"alluyslotherorigins:fall_immunities/infinite"
+	],
+	"order": 2012,
+	"enabled": false,
+	"default_origin": "alluyslotherorigins:fall_immunities/zero"
+}

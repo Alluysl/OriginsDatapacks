@@ -1,0 +1,22 @@
+{
+	"name": "Ostrich",
+	"description": "Of a kind close to the avians, living in savannas, you've adapted to the dangers of that place, rendering you faster than them, but without the ability to glide.",
+	"powers": [
+		"origins:fall_immunity",
+		"alluyslotherorigins:fast_runner",
+		"alluyslotherorigins:large_eggs",
+		"alluyslotherorigins:savanna_inhabitant",
+		"alluyslotherorigins:no_elytra",
+		"alluyslotherorigins:flightless_dummy",
+		"origins:vegetarian",
+		"alluyslotherorigins:weak_to_felines",
+		"alluyslotherorigins:chocolate_toxicity",
+		"alluyslotherorigins:ostrich_fact",
+		"alluyslotherorigins:credits"
+	],
+	"icon": {
+		"item": "minecraft:acacia_leaves"
+	},
+	"order": 0,
+	"impact": 1
+}

@@ -1,0 +1,45 @@
+{
+	"replace": false,
+	"values": [
+		"minecraft:honey_bottle",
+		"minecraft:sweet_berries",
+		"minecraft:beetroot",
+
+		{
+			"id": "croptopia:grape_jam",
+			"required": false
+		},
+		{
+			"id": "croptopia:strawberry_jam",
+			"required": false
+		},
+		{
+			"id": "croptopia:peach_jam",
+			"required": false
+		},
+		{
+			"id": "croptopia:apricot_jam",
+			"required": false
+		},
+		{
+			"id": "croptopia:blackberry_jam",
+			"required": false
+		},
+		{
+			"id": "croptopia:blueberry_jam",
+			"required": false
+		},
+		{
+			"id": "croptopia:cherry_jam",
+			"required": false
+		},
+		{
+			"id": "croptopia:elderberry_jam",
+			"required": false
+		},
+		{
+			"id": "croptopia:raspberry_jam",
+			"required": false
+		}
+	]
+}

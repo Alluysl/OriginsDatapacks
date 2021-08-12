@@ -1,0 +1,66 @@
+{
+	"name": "Ostrich Fact",
+	"description": "Every five minutes, you can use your secondary active to say a fact about ostriches.",
+	"type": "origins:active_self",
+	"entity_action": {
+		"type": "origins:choice",
+		"actions": [
+			{
+				"element": {
+					"type": "origins:execute_command",
+					"command": "say Ostriches have the largest eyes of any land animal."
+				},
+				"weight": 1
+			},
+			{
+				"element": {
+					"type": "origins:execute_command",
+					"command": "say The ostrich is the only bird that willingly takes care of other females’ eggs."
+				},
+				"weight": 1
+			},
+			{
+				"element": {
+					"type": "origins:execute_command",
+					"command": "say The Ostrich is the largest bird in the world. It also lays the largest eggs and has the fastest maximum running speed (97 kph)."
+				},
+				"weight": 1
+			},
+			{
+				"element": {
+					"type": "origins:execute_command",
+					"command": "say Ostriches do not bury their heads in the sand when danger is near. But they have been seen to lie on the ground with their long neck stretched out flat if they want to hide."
+				},
+				"weight": 1
+			},
+			{
+				"element": {
+					"type": "origins:execute_command",
+					"command": "say The largest, tallest, and heaviest bird in the world is the ostrich. Male ostriches can reach up to 9 ft. tall (2.7 m) and weigh up to 350 lb. (160 kg). Their eyes are bigger than any other land animals' eyes and are even larger than their brain."
+				},
+				"weight": 1
+			},
+			{
+				"element": {
+					"type": "origins:execute_command",
+					"command": "say Birds typically have two, three, or four toes. A typical perching bird has three pointing forward, and one back. Birds that run on hard ground have only three, all pointing forward. Ostriches only have two toes, which are shaped like the hoof of an antelope."
+				},
+				"weight": 1
+			},
+			{
+				"element": {
+					"type": "origins:execute_command",
+					"command": "say The ostrich lays the biggest egg in the world. It measures 7\" x 5\" and weighs 3 pounds. However, the biggest egg for the size of the mother is laid by the kiwi and is a third of the weight of the bird. It is 5\" long and can weigh as much as 1 lb. This would be the equivalent of an ostrich laying an 88 lb. (40 kg.) egg."
+				},
+				"weight": 1
+			}
+		]
+	},
+	"cooldown": 6000,
+	"key": {
+		"key": "key.origins.secondary_active"
+	},
+	"hud_render": {
+		"should_render": false
+	}
+}

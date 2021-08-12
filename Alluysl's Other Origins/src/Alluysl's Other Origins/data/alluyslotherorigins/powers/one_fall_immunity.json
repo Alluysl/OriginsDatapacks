@@ -1,0 +1,35 @@
+{
+	"name": "One Chance",
+	"description": "You can touch the ground once without taking damage",
+	"type": "origins:multiple",
+
+	"damage_prevention": {
+
+		"type": "origins:modify_damage_taken",
+		"modifier": {
+			"operation": "multiply_total",
+			"value": -1.0
+		},
+		"damage_condition": {
+			"type": "origins:name",
+			"name": "fall"
+		},
+		"self_action": {
+			"type": "origins:execute_command",
+			"command": "origin set @s alluyslotherorigins:fall_immunities alluyslotherorigins:fall_immunities/zero"
+		}
+	},
+
+	"removal_on_land": {
+
+		"type": "origins:action_on_land",
+		"entity_action": {
+			"type": "origins:delay",
+			"ticks": 1,
+			"action": {
+				"type": "origins:execute_command",
+				"command": "origin set @s alluyslotherorigins:fall_immunities alluyslotherorigins:fall_immunities/zero"
+			}
+		}
+	}
+}

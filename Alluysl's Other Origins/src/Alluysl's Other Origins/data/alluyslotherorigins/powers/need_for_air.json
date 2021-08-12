@@ -1,0 +1,48 @@
+{
+	"type": "origins:multiple",
+	"name": "Need For Air",
+	"description": "As your species hates being caged indoors, your're faster while outside, but slower and unlucky when inside.",
+
+	"speed": {
+		"type": "origins:conditioned_attribute",
+		"modifier": {
+			"name": "Need for air speed bonus",
+			"attribute": "minecraft:generic.movement_speed",
+			"operation": "addition",
+			"value": 0.03
+		},
+		"condition": {
+			"type": "origins:exposed_to_sky"
+		}
+	},
+
+	"slowness": {
+		"type": "origins:conditioned_attribute",
+		"modifier": {
+			"name": "Need for air speed malus",
+			"attribute": "minecraft:generic.movement_speed",
+			"operation": "addition",
+			"value": -0.02
+		},
+		"condition": {
+			"type": "origins:exposed_to_sky",
+			"inverted": true
+		}
+	},
+
+	"unluck": {
+		"type": "origins:stacking_status_effect",
+		"min_stacks": 0,
+		"max_stacks": 1,
+		"duration_per_stack": 30,
+		"effect": {
+			"effect": "minecraft:unluck",
+			"show_particles": false,
+			"show_icon": false
+		},
+		"condition": {
+			"type": "origins:exposed_to_sky",
+			"inverted": true
+		}
+	}
+}

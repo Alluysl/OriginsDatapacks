@@ -1,0 +1,9 @@
+{
+	"name": "One",
+	"description": " ",
+	"powers": [
+		"alluyslotherorigins:one_fall_immunity"
+	],
+	"icon": "minecraft:string",
+	"unchoosable": true
+}

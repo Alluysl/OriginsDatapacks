@@ -1,0 +1,28 @@
+{
+	"replace": false,
+	"values": [
+		"minecraft:cocoa_beans",
+		"minecraft:cookie",
+
+		{
+			"id": "croptopia:chocolate",
+			"required": false
+		},
+		{
+			"id": "croptopia:chocolate_milkshake",
+			"required": false
+		},
+		{
+			"id": "croptopia:brownies",
+			"required": false
+		},
+		{
+			"id": "croptopia:protein_bar",
+			"required": false
+		},
+		{
+			"id": "croptopia:trail_mix",
+			"required": false
+		}
+	]
+}

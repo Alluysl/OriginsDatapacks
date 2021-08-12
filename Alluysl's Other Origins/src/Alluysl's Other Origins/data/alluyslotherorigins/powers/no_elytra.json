@@ -1,0 +1,10 @@
+{
+	"type": "origins:restrict_armor",
+	"chest": {
+		"type": "origins:armor_value",
+		"comparison": "<",
+		"compare_to": 3
+	},
+	"comment": "Thanks pieahhlow#7557",
+	"hidden": true
+}

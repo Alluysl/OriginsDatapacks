@@ -1,0 +1,14 @@
+{
+	"name": "Fast Runner",
+	"description": "You are fit for running, increasing your sprinting speed.",
+	"type": "origins:conditioned_attribute",
+	"modifier": {
+		"name": "Fast Runner speed bonus",
+		"attribute": "minecraft:generic.movement_speed",
+		"operation": "addition",
+		"value": 0.04
+	},
+	"condition": {
+		"type": "origins:sprinting"
+	}
+}

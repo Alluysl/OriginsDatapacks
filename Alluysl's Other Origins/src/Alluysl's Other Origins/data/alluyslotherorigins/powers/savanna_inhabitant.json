@@ -1,0 +1,8 @@
+{
+	"name": "Savanna Inhabitant",
+	"description": "You spawn in a savanna biome.",
+	"type": "origins:modify_player_spawn",
+	"dimension": "minecraft:overworld",
+	"biome": "minecraft:savanna",
+	"dimension_distance_multiplier": 1
+}
