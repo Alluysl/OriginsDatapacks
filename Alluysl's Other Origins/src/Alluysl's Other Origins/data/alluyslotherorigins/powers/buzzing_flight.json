@@ -203,7 +203,7 @@
 		"duration_per_stack": 12,
 		"effect": {
 			"effect": "minecraft:levitation",
-			"amplifier": 255,
+			"amplifier": -1,
 			"is_ambient": true,
 			"show_particles": false,
 			"show_icon": false

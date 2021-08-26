@@ -123,7 +123,7 @@ You also never take fall damage.
 
 #### 🟢 Tiny
 
-You're even smaller than an inchling.
+You're even smaller than an inchling, this means you can fit in more spaces, you might have a harder time picking up items, though.
 
 #### 🟡 Fast Heart
 
@@ -132,10 +132,6 @@ You attack faster while satiated, and you're weakened when hungry.
 #### 🟡 Sugar Preference
 
 Non-[sugary foods](#sugary-foods) aren't as good for you, but those that contain that juicy glucose give you absorption. You can also eat plain sugar.
-
-#### 🟡 Extremely Light
-
-Taking damage while flying knocks you way back.
 
 #### 🔴 Short Life
 

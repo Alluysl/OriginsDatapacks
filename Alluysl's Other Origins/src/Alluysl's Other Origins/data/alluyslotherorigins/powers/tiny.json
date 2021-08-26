@@ -1,6 +1,6 @@
 {
 	"name": "Tiny",
-	"description": "You're a quarter of a block tall.",
+	"description": "You're a quarter of a block tall, giving you the ability to fit in small spaces, but also making it more difficult for you to pick up items.",
 	"type": "origins:action_on_callback",
 
 	"entity_action_added": {
